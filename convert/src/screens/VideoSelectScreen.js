@@ -48,9 +48,6 @@ class VideoSelectScreen extends Component {
             fontSize: '5rem',
           }}
         >
-          <h1>
-            <RiVideoUploadFill />
-          </h1>
           <h4 className='drop-message'>
             Drag and drop some files here, or click to select files
           </h4>
