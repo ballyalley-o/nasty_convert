@@ -39,19 +39,9 @@ class VideoSelectScreen extends Component {
       )
     } else {
       return (
-        <div
-          className='py-10 items-center m-auto'
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            fontSize: '5rem',
-          }}
-        >
-          <h4 className='drop-message'>
-            Drag and drop some files here, or click to select files
-          </h4>
-        </div>
+        <h4 className='drop-message bold'>
+          <b>Drag and drop some files here, or click to select files</b>
+        </h4>
       )
     }
   }

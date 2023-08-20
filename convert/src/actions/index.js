@@ -14,6 +14,12 @@ import { IPCID } from '../constants'
 // have been added and are pending conversion
 export const addVideos = (videos) => (dispatch) => {
   ipcRenderer.send(IPCID.VIDEOS_ADDED, videos)
+  ipcRenderer.on(IPCID.META_COMPLETE, (event, videosData) => {
+    dispatch({
+      type: ADD_VIDEOS,
+      payload: videosData,
+    })
+  })
 }
 
 // TODO: Communicate to MainWindow that the user wants
