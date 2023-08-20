@@ -7,6 +7,7 @@ import {
   VIDEO_PROGRESS,
   VIDEO_COMPLETE,
 } from './types'
+import _ from 'lodash'
 // constants
 import { IPCID } from '../constants'
 
@@ -26,7 +27,10 @@ export const addVideos = (videos) => (dispatch) => {
 // to start converting videos.  Also listen for feedback
 // from the MainWindow regarding the current state of
 // conversion.
-export const convertVideos = () => (dispatch, getState) => {}
+export const convertVideos = () => (dispatch, getState) => {
+  const videos = _.map(getState().videos)
+  ipcRenderer.send(IPCID.CONVERT_START, videos)
+}
 
 // TODO: Open the folder that the newly created video
 // exists in
