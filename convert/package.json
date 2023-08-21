@@ -1,12 +1,13 @@
 {
   "name": "nasty-convert",
+  "productName": "Nasty Convert",
   "version": "1.0.0",
   "description": "electron converter app",
   "main": "app.js",
   "scripts": {
     "start": "webpack-dev-server",
     "electron": "electron .",
-    "build": "electron-packager . nasty_convert --platform=darwin --icon=icons/icon.png --arm64 --out=dist"
+    "build": "electron-packager . --productName 'Nasty Convert' --platform=darwin --icon=icons/icon.icns --arm64 --out=dist"
   },
   "author": "Bally Lomibao",
   "devDependencies": {
