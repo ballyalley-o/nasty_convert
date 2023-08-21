@@ -1,1 +1,37 @@
-node_modules/
+# Node.js / Electron
+
+node*modules/
+dist/
+*.log
+npm-debug.log\_
+
+# OS-specific
+
+.DS_Store
+Thumbs.db
+
+# IDEs and editors
+
+.vscode/
+.idea/
+\*.code-workspace
+
+# Build artifacts
+
+build/
+out/
+
+# Electron-packager output
+
+release/
+
+# Dependency lock files
+
+yarn.lock
+package-lock.json
+
+# User-specific files
+
+_.sublime-project
+_.sublime-workspace
+
