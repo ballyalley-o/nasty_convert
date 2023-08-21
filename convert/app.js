@@ -7,7 +7,7 @@ const { views, VIEW } = require('./src/utils/views')
 const promises = require('./src/utils/video-resolve')
 const { STATE, WINDOW, IPCID, DEFAULT } = require('./src/constants')
 
-const { app, BrowserWindow, ipcMain } = electron
+const { app, BrowserWindow, ipcMain, shell } = electron
 
 let mainWindow
 
@@ -43,4 +43,8 @@ ipcMain.on(IPCID.CONVERT_START, (event, videos) => {
       })
       .run()
   })
+})
+
+ipcMain.on(IPCID.SHOW_FOLDER, (event, outputPath) => {
+  shell.showItemInFolder(outputPath)
 })
