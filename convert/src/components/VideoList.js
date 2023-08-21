@@ -3,15 +3,8 @@ import moment from 'moment'
 import 'moment-duration-format'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
-const VIDEO_FORMATS = [
-  { value: 'avi', option: 'AVI' },
-  { value: 'm4v', option: 'M4V raw MPEG-4' },
-  { value: 'mov', option: 'MOV / QuickTime' },
-  { value: 'mp4', option: 'MP4 / QuickTime' },
-  { value: 'mpeg', option: 'MPEG' },
-  { value: 'ogv', option: 'OGV' },
-]
+import VIDEO_FORMATS from '../constants/formats'
+import { AiOutlineFolderOpen } from 'react-icons/ai'
 
 class VideoList extends Component {
   showStatus({ complete, timemark, outputPath, err }) {
@@ -19,9 +12,12 @@ class VideoList extends Component {
       return (
         <button
           onClick={() => this.props.onFolderOpen(outputPath)}
-          className='btn'
+          className='btn bg-purple'
         >
-          Open Folder
+          <div>
+            <AiOutlineFolderOpen />
+            <b> Open Folder</b>
+          </div>
         </button>
       )
     } else if (err) {
@@ -75,17 +71,22 @@ class VideoList extends Component {
             <p>{name}</p>
             <p>{formatedDuration}</p>
           </div>
-          <div className='secondary-content' style={styles.secondaryContent}>
+          <div
+            className='primary-content black-text'
+            style={styles.secondaryContent}
+          >
             <select
               className={
-                complete || timemark ? 'hidden' : 'browser-default right'
+                complete || timemark
+                  ? 'hidden'
+                  : 'browser-default right large bold'
               }
               value={format}
               onChange={(e) => this.props.onFormatChange(video, e.target.value)}
             >
               {VIDEO_FORMATS.map((outFormat) => (
                 <option key={outFormat.value} value={outFormat.value}>
-                  {outFormat.option}
+                  <b>{outFormat.option}</b>
                 </option>
               ))}
             </select>
@@ -110,8 +111,8 @@ const styles = {
     top: 0,
     bottom: 0,
     left: 0,
-    backgroundColor: '#03a9f4',
-    opacity: 0.25,
+    backgroundColor: 'purple',
+    opacity: 0.3,
   },
   secondaryContent: {
     zIndex: 1,

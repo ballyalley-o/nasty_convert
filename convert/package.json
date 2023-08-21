@@ -1,15 +1,17 @@
 {
-  "name": "timer",
+  "name": "nasty-convert",
   "version": "1.0.0",
   "description": "electron converter app",
   "main": "app.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "electron": "electron ."
+    "electron": "electron .",
+    "build": "electron-packager . nasty_convert --platform=darwin --icon=icons/icon.png --arm64 --out=dist"
   },
   "author": "Bally Lomibao",
   "devDependencies": {
-    "electron": "~1.6.2"
+    "electron": "~1.6.2",
+    "electron-builder": "^24.6.3"
   },
   "dependencies": {
     "babel-core": "^6.24.0",

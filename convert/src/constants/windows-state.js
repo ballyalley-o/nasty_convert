@@ -1,3 +1,7 @@
+const path = require('path')
+
+const directPath = path.join(__dirname, '..')
+
 const WINDOW = {
   MAIN: {
     height: 600,
@@ -8,5 +12,7 @@ const WINDOW = {
     },
   },
 }
+
+console.log(WINDOW.MAIN.icon)
 
 module.exports = WINDOW

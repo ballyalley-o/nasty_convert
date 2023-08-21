@@ -12,11 +12,11 @@ class ConvertPanel extends Component {
   render() {
     return (
       <div className='convert-panel'>
-        <button className='btn yellow darken-3' onClick={this.onCancelPressed}>
-          Cancel
+        <button className='btn black darken-3' onClick={this.onCancelPressed}>
+          <b>Cancel</b>
         </button>
-        <button className='btn grey' onClick={this.props.convertVideos}>
-          Convert!
+        <button className='btn purple' onClick={this.props.convertVideos}>
+          <b> Go NASTY!</b>
         </button>
       </div>
     )
