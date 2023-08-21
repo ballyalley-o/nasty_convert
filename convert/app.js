@@ -35,8 +35,11 @@ ipcMain.on(IPCID.CONVERT_START, (event, videos) => {
 
     ffmpeg(video.path)
       .output(outputPath)
+      .on(STATE.PROGRESS, ({ timemark }) => {
+        mainWindow.webContents.send(IPCID.CONVERT_PROGRESS, { video, timemark })
+      })
       .on(STATE.END, () => {
-        console.log('Video conversion complete')
+        mainWindow.webContents.send(IPCID.CONVERT_END, { video, outputPath })
       })
       .run()
   })

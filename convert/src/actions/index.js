@@ -30,6 +30,13 @@ export const addVideos = (videos) => (dispatch) => {
 export const convertVideos = () => (dispatch, getState) => {
   const videos = _.map(getState().videos)
   ipcRenderer.send(IPCID.CONVERT_START, videos)
+  ipcRenderer.on(IPCID.CONVERT_END, (event, { video, outputPath }) => {
+    dispatch({ type: VIDEO_COMPLETE, payload: { ...video, outputPath } })
+  })
+
+  ipcRenderer.on(IPCID.CONVERT_PROGRESS, (event, { video, timemark }) => {
+    dispatch({ type: VIDEO_PROGRESS, payload: { ...video, timemark } })
+  })
 }
 
 // TODO: Open the folder that the newly created video
