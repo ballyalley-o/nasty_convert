@@ -8,7 +8,9 @@
 
 # Nasty Convert
 
-> A Video coverter built with Electron, React, and Redux. Webpack server is implemented for hot reloading.
+> A Video coverter built for OSX with Electron, React, and Redux. Webpack server is implemented for hot reloading.
+
+Used to convert a Video format to various formats.
 
 ## Install
 
@@ -28,4 +30,9 @@ npm start
 
 ```bash
 npm run electron
+```
+
+<sub>\*build a dmg</sub>
+```bash
+npm run build
 ```
